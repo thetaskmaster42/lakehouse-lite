@@ -1,4 +1,4 @@
-.PHONY: help today status lint test plan kubeconfig
+.PHONY: help today status verify lint test plan kubeconfig
 
 help:  ## list targets
 	@grep -E '^[a-z-]+:.*##' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  %-12s %s\n", $$1, $$2}'
@@ -8,6 +8,9 @@ today:  ## today's open items + overdue items from notes/tracker.md
 
 status:  ## per-week and overall progress
 	@python3 scripts/progress.py status
+
+verify:  ## run automated checks and tick passing items (ARGS=--dry-run|--all|--recheck)
+	@python3 scripts/verify.py $(ARGS)
 
 lint:  ## run every pre-commit hook on all files
 	pre-commit run --all-files
