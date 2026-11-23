@@ -1,0 +1,23 @@
+# secrets & state: never commit
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfplan
+crash.log
+kubeconfig*
+*.kubeconfig
+.env
+*.pem
+*.key
+sealed-secrets-key*.yaml
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# misc
+.DS_Store
+.idea/
