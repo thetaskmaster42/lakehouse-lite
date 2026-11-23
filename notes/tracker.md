@@ -20,19 +20,19 @@ Concepts: API server, etcd (k3s: SQLite or embedded etcd), scheduler, controller
 
 **S0 Repo and conventions**
 - [x] Layout, README.md, notes/log.md, notes/versions.md, playbooks/TEMPLATE.md
-- [ ] Pre-commit installed (`pre-commit autoupdate && pre-commit install`): yamllint, terraform fmt, ruff, kubeconform, gitleaks
+- [x] Pre-commit installed (`pre-commit autoupdate && pre-commit install`): yamllint, terraform fmt, ruff, kubeconform, gitleaks
 - [ ] Push to GitHub (`lakehouse-lite`, private) and protect `main` (PRs only)
 - [x] Makefile targets: lint, test, plan, kubeconfig
 - [ ] ✅ `pre-commit run --all-files` passes on a clean clone
-- [ ] ✅ Committing a fake AWS key is blocked by gitleaks
+- [x] ✅ Committing a fake AWS key is blocked by gitleaks
 
 **S1 Cluster baseline**
 - [x] k3s installed (pre-existing homelab: v1.36.3+k3s1, 1 server + 2 workers, Raspberry Pi arm64, 4 CPU / 16 Gi each); version in versions.md
-- [ ] Agent labels `node-role/data=true`; one agent tainted `workload=batch:NoSchedule`
+- [x] Agent labels `node-role/data=true`; one agent tainted `workload=batch:NoSchedule`
 - [ ] Namespaces platform, data, monitoring, chaos, team-a, team-b with label `team=<name>`
 - [ ] PSA baseline on all namespaces, restricted on team-*
 - [ ] Datastore backup (etcd snapshot, or SQLite file + server token)
-- [ ] ✅ `kubectl get nodes -o wide`: all Ready, with labels and taint
+- [x] ✅ `kubectl get nodes -o wide`: all Ready, with labels and taint
 - [ ] ✅ A privileged pod in team-a is rejected by PSA
 - [x] ✅ Rebuilding from `bootstrap/` alone gives the same cluster *(bootstrap handled outside this repo; treated as complete)*
 
